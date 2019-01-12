@@ -33,7 +33,14 @@
 			<li class="dropdown">
 				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="faker.html">faker</a></li><li><a href="faker.address.html">faker.address</a></li><li><a href="faker.commerce.html">faker.commerce</a></li><li><a href="faker.company.html">faker.company</a></li><li><a href="faker.database.html">faker.database</a></li><li><a href="faker.date.html">faker.date</a></li><li><a href="faker.finance.html">faker.finance</a></li><li><a href="faker.hacker.html">faker.hacker</a></li><li><a href="faker.helpers.html">faker.helpers</a></li><li><a href="faker.image.html">faker.image</a></li><li><a href="faker.internet.html">faker.internet</a></li><li><a href="faker.lorem.html">faker.lorem</a></li><li><a href="faker.name.html">faker.name</a></li><li><a href="faker.phone.html">faker.phone</a></li><li><a href="faker.random.html">faker.random</a></li><li><a href="faker.system.html">faker.system</a></li>
+					<li><a href="faker.html">faker</a></li><li><a href="faker.address.html">faker.address</a></li><li><a href="faker.commerce.html">faker.commerce</a></li><li><a href="faker.company.html">faker.company</a></li><li><a href="faker.database.html">faker.database</a></li><li><a href="faker.date.html">faker.date</a></li><li><a href="faker.finance.html">faker.finance</a></li><li><a href="faker.git.html">faker.git</a></li><li><a href="faker.hacker.html">faker.hacker</a></li><li><a href="faker.helpers.html">faker.helpers</a></li><li><a href="faker.home.html">faker.home</a></li><li><a href="faker.image.html">faker.image</a></li><li><a href="faker.internet.html">faker.internet</a></li><li><a href="faker.lorem.html">faker.lorem</a></li><li><a href="faker.name.html">faker.name</a></li><li><a href="faker.phone.html">faker.phone</a></li><li><a href="faker.random.html">faker.random</a></li><li><a href="faker.system.html">faker.system</a></li><li><a href="faker.unique.html">faker.unique</a></li><li><a href="faker.vehicle.html">faker.vehicle</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#unique">unique</a></li>
 				</ul>
 			</li>
 			
@@ -94,16 +101,16 @@
 <li>Full-Featured Microservice</li>
 <li>Hosted by <a href="http://hook.io">hook.io</a></li>
 </ul>
-<pre class="prettyprint source lang-bash"><code>curl http://faker.hook.io?property=name.findName&locale=de</code></pre><h2>Usage</h2><h3>Browser</h3><pre class="prettyprint source"><code>&lt;script src = &quot;faker.js&quot; type = &quot;text/javascript&quot;>&lt;/script>
-&lt;script>
-  var randomName = faker.name.findName(); // Caitlyn Kerluke
-  var randomEmail = faker.internet.email(); // Rusty@arne.info
-  var randomCard = faker.helpers.createCard(); // random contact card containing many properties
-&lt;/script></code></pre><h3>Node.js</h3><pre class="prettyprint source"><code>var faker = require('faker');
+<pre class="prettyprint source lang-bash"><code>curl http://faker.hook.io?property=name.findName&locale=de</code></pre><h2>Usage</h2><h3>Browser</h3><pre class="prettyprint source lang-html"><code>    &lt;script src = &quot;faker.js&quot; type = &quot;text/javascript&quot;>&lt;/script>
+    &lt;script>
+      var randomName = faker.name.findName(); // Caitlyn Kerluke
+      var randomEmail = faker.internet.email(); // Rusty@arne.info
+      var randomCard = faker.helpers.createCard(); // random contact card containing many properties
+    &lt;/script></code></pre><h3>Node.js</h3><pre class="prettyprint source lang-js"><code>    var faker = require('faker');
 
-var randomName = faker.name.findName(); // Rowan Nikolaus
-var randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
-var randomCard = faker.helpers.createCard(); // random contact card containing many properties</code></pre><h2>API</h2><h3>Faker.fake()</h3><p>faker.js contains a super useful generator method <code>Faker.fake</code> for combining faker API methods using a mustache string format.</p>
+    var randomName = faker.name.findName(); // Rowan Nikolaus
+    var randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
+    var randomCard = faker.helpers.createCard(); // random contact card containing many properties</code></pre><h2>API</h2><h3>Faker.fake()</h3><p>faker.js contains a super useful generator method <code>Faker.fake</code> for combining faker API methods using a mustache string format.</p>
 <p><strong>Example:</strong></p>
 <pre class="prettyprint source lang-js"><code>console.log(faker.fake(&quot;{{name.lastName}}, {{name.firstName}} {{name.suffix}}&quot;));
 // outputs: &quot;Marks, Dean Sr.&quot;</code></pre><p>This will interpolate the format string with the value of methods <code>name.lastName()</code>, <code>name.firstName()</code>, and <code>name.suffix()</code></p>
@@ -111,6 +118,7 @@ var randomCard = faker.helpers.createCard(); // random contact card containing m
 <h3>API Methods</h3><ul>
 <li>address<ul>
 <li>zipCode</li>
+<li>zipCodeByState</li>
 <li>city</li>
 <li>cityPrefix</li>
 <li>citySuffix</li>
@@ -126,6 +134,10 @@ var randomCard = faker.helpers.createCard(); // random contact card containing m
 <li>stateAbbr</li>
 <li>latitude</li>
 <li>longitude</li>
+<li>direction</li>
+<li>cardinalDirection</li>
+<li>ordinalDirection</li>
+<li>nearbyGPSCoordinate</li>
 </ul>
 </li>
 <li>commerce<ul>
@@ -164,6 +176,7 @@ var randomCard = faker.helpers.createCard(); // random contact card containing m
 <li>future</li>
 <li>between</li>
 <li>recent</li>
+<li>soon</li>
 <li>month</li>
 <li>weekday</li>
 </ul>
@@ -172,6 +185,7 @@ var randomCard = faker.helpers.createCard(); // random contact card containing m
 <li>finance<ul>
 <li>account</li>
 <li>accountName</li>
+<li>routingNumber</li>
 <li>mask</li>
 <li>amount</li>
 <li>transactionType</li>
@@ -179,8 +193,19 @@ var randomCard = faker.helpers.createCard(); // random contact card containing m
 <li>currencyName</li>
 <li>currencySymbol</li>
 <li>bitcoinAddress</li>
+<li>creditCardNumber</li>
+<li>creditCardCVV</li>
+<li>ethereumAddress</li>
 <li>iban</li>
 <li>bic</li>
+</ul>
+</li>
+<li>git<ul>
+<li>branch</li>
+<li>commitEntry</li>
+<li>commitMessage</li>
+<li>commitSha</li>
+<li>shortSha</li>
 </ul>
 </li>
 <li>hacker<ul>
@@ -197,12 +222,21 @@ var randomCard = faker.helpers.createCard(); // random contact card containing m
 <li>slugify</li>
 <li>replaceSymbolWithNumber</li>
 <li>replaceSymbols</li>
+<li>replaceCreditCardSymbols</li>
+<li>repeatString</li>
+<li>regexpStyleStringParse</li>
 <li>shuffle</li>
 <li>mustache</li>
 <li>createCard</li>
 <li>contextualCard</li>
 <li>userCard</li>
 <li>createTransaction</li>
+</ul>
+</li>
+<li>home<ul>
+<li>type</li>
+<li>room</li>
+<li>storageLocation</li>
 </ul>
 </li>
 <li>image<ul>
@@ -223,6 +257,8 @@ var randomCard = faker.helpers.createCard(); // random contact card containing m
 <li>technics</li>
 <li>transport</li>
 <li>dataUri</li>
+<li>lorempixel</li>
+<li>unsplash</li>
 </ul>
 </li>
 <li>internet<ul>
@@ -260,6 +296,7 @@ var randomCard = faker.helpers.createCard(); // random contact card containing m
 <li>lastName</li>
 <li>findName</li>
 <li>jobTitle</li>
+<li>gender</li>
 <li>prefix</li>
 <li>suffix</li>
 <li>title</li>
@@ -276,7 +313,9 @@ var randomCard = faker.helpers.createCard(); // random contact card containing m
 </li>
 <li>random<ul>
 <li>number</li>
+<li>float</li>
 <li>arrayElement</li>
+<li>arrayElements</li>
 <li>objectElement</li>
 <li>uuid</li>
 <li>boolean</li>
@@ -284,7 +323,9 @@ var randomCard = faker.helpers.createCard(); // random contact card containing m
 <li>words</li>
 <li>image</li>
 <li>locale</li>
+<li>alpha</li>
 <li>alphaNumeric</li>
+<li>hexaDecimal</li>
 </ul>
 </li>
 <li>system<ul>
@@ -300,6 +341,17 @@ var randomCard = faker.helpers.createCard(); // random contact card containing m
 <li>semver</li>
 </ul>
 </li>
+<li>unique</li>
+<li>vehicle<ul>
+<li>vehicle</li>
+<li>manufacturer</li>
+<li>model</li>
+<li>type</li>
+<li>fuel</li>
+<li>vin</li>
+<li>color</li>
+</ul>
+</li>
 </ul>
 <h2>Localization</h2><p>As of version <code>v2.0.0</code> faker.js has support for multiple localities.</p>
 <p>The default language locale is set to English.</p>
@@ -307,6 +359,7 @@ var randomCard = faker.helpers.createCard(); // random contact card containing m
 <pre class="prettyprint source lang-js"><code>// sets locale to de
 faker.locale = &quot;de&quot;;</code></pre><ul>
 <li>az</li>
+<li>ar</li>
 <li>cz</li>
 <li>de</li>
 <li>de_AT</li>
@@ -319,12 +372,14 @@ faker.locale = &quot;de&quot;;</code></pre><ul>
 <li>en_IE</li>
 <li>en_IND</li>
 <li>en_US</li>
+<li>en_ZA</li>
 <li>en_au_ocker</li>
 <li>es</li>
 <li>es_MX</li>
 <li>fa</li>
 <li>fr</li>
 <li>fr_CA</li>
+<li>fr_CH</li>
 <li>ge</li>
 <li>id_ID</li>
 <li>it</li>
@@ -332,9 +387,12 @@ faker.locale = &quot;de&quot;;</code></pre><ul>
 <li>ko</li>
 <li>nb_NO</li>
 <li>nep</li>
+<li>nl_BE</li>
 <li>nl</li>
 <li>pl</li>
 <li>pt_BR</li>
+<li>pt_PT</li>
+<li>ro</li>
 <li>ru</li>
 <li>sk</li>
 <li>sv</li>
@@ -364,6 +422,8 @@ make test</code></pre><p>You can view a code coverage report generated in covera
 See: https://github.com/pateketrueke/json-schema-faker/</p>
 <h3>CLI</h3><p>Run faker generators from Command Line.
 See: https://github.com/lestoni/faker-cli</p>
+<h3>Mocker data generator</h3><p>Minimal JSON data generator, fakerJs is one of the providers.
+See:  https://github.com/danibram/mocker-data-generator</p>
 <p><strong>Want to see your project added here? Let us know!</strong></p>
 <h3>Meteor</h3><h4>Meteor Installation</h4><pre class="prettyprint source"><code>meteor add practicalmeteor:faker</code></pre><h4>Meteor Usage, both client and server</h4><pre class="prettyprint source lang-js"><code>var randomName = faker.name.findName(); // Rowan Nikolaus
 var randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
@@ -435,9 +495,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></article>
 
 
 <span class="jsdoc-message">
-	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-02-21T13:01:35-05:00
+		on 2019-01-12T17:29:30-05:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
